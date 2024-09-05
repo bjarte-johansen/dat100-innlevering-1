@@ -41,7 +41,7 @@ public class O2 {
 		for(int i=0; i<n; i++) {
 			try {
 				// hent inn poengsum (score) og kalkulert karakter
-				int score = GenericInputDialog.read(
+				int score = GenericInputDialog.show(
 					null, 
 					"Skriv inn poengsum", 
 					"Input",

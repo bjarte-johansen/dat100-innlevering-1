@@ -15,16 +15,16 @@ class GenericInputDialog{
 	public static class CharParser implements Parser<Character>{ @Override public Character parse(String s) { return s.charAt(0); } }
 	public static class StringParser implements Parser<String>{ @Override public String parse(String s) { return s; } }
 
-	public static <T> T read(Object parentComponent, String message, String title, Parser<T> parser) {
-		return read(parentComponent, message, title, parser, false);
+	public static <T> T show(Object parentComponent, String message, String title, Parser<T> parser) {
+		return show(parentComponent, message, title, parser, false);
 	}
-	public static <T> T read(Object parentComponent, String message, String title, Parser<T> parser, boolean retry) {
+	public static <T> T show(Object parentComponent, String message, String title, Parser<T> parser, boolean retry) {
 		try {
 			String s = javax.swing.JOptionPane.showInputDialog((java.awt.Component) parentComponent, message, title, javax.swing.JOptionPane.QUESTION_MESSAGE);
 			return parser.parse(s);
 		}catch(Exception e) {
 			if(retry) {
-				return read(parentComponent, message, title, parser, retry);
+				return show(parentComponent, message, title, parser, retry);
 			}else {
 				throw(e);
 			}
@@ -77,7 +77,7 @@ public class O1 {
 	 */
 	static void run() {
 		try {
-			double incomeBeforeTax = GenericInputDialog.read(
+			double incomeBeforeTax = GenericInputDialog.show(
 				null, 
 				"Skriv inn inntekt før skatt", 
 				"Input",

@@ -16,7 +16,7 @@ public class O3 {
 	public static void main(String[] args) {
 		try {
 			// hent inn heltall og beregn fakultet
-			int num = GenericInputDialog.read(
+			int num = GenericInputDialog.show(
 				null, 
 				"Skriv inn heltall", 
 				"Input",
