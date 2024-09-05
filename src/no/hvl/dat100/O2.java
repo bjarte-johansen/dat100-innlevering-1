@@ -34,6 +34,7 @@ public class O2 {
 	/*
 	 * - n angir hvor mange ganger en vil mappe en poengsum til en karakter
 	 * - retryIfInvalidGrade angir om en skal lese inn på nytt til en får
+	 * - benytter rekursjon dersom ved raised exception 
 	 * en gyldig karakter (altså at poengsum er gyldig) 
 	 */
 	static void run(int n, boolean retryIfInvalidGrade) {
