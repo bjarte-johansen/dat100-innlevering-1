@@ -45,7 +45,7 @@ public class O2 {
 					null, 
 					"Skriv inn poengsum", 
 					"Input",
-					new Dialogs.GenericInputDialog.IntParser(), 
+					new Dialogs.GenericInputDialog.IntParser(),
 					true
 					);
 				
