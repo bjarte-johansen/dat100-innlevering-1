@@ -112,7 +112,7 @@ public class O1 {
 		} catch(Exception e) {
 			System.out.println("404 - du har funnet en feil vi ikke fant");
 			System.out.println("Kjør program på nytt med gyldig input");
-			System.out.printf("Detaljer: \"%s\"\n", e.toString());
+			System.out.printf("Feil: %s\n", e.getMessage());
 		}
 	}
 	
