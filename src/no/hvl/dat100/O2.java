@@ -1,38 +1,34 @@
 package no.hvl.dat100;
 
-
 public class O2 {
 	// validate score
 	static boolean isValidScore(int score) {
 		return (score >= 0) && (score <= 100);
 	}
 	
-	/*
-	 * map a score to a grade. String chosen instead of Char early in case
-	 * task required addition of +/- per grade. It never did but we dont 
-	 * change it as it requires extra testing
-	 */
-	static String scoreToGradeString(int score){
+	// map score to grade 
+	// - throws if input is invalid	
+	static char scoreToGradeString(int score){
 		if(!isValidScore(score)) {
 			throw new IllegalArgumentException("Poeng må være i [0..100]");
 		}
 
 		if(score <= 39) { 
-			return "F"; 
+			return 'F'; 
 		}		
 		if(score <= 49) {
-			return "E"; 
+			return 'E'; 
 		}		
 		if(score <= 59) { 
-			return "D"; 
+			return 'D'; 
 		}		
 		if(score <= 79) { 
-			return "C"; 
+			return 'C'; 
 		}		
 		if(score <= 89) { 
-			return "B"; 
+			return 'B'; 
 		}		
-		return "A";
+		return 'A';
 	}
 	
 	/*
@@ -40,7 +36,7 @@ public class O2 {
 	 * - retryIfInvalidGrade angir om en skal lese inn på nytt til en får
 	 * en gyldig karakter (altså at poengsum er gyldig) 
 	 */
-	public static void run(int n, boolean retryIfInvalidGrade) {
+	static void run(int n, boolean retryIfInvalidGrade) {
 		
 		for(int i=0; i<n; i++) {
 			try {
@@ -52,7 +48,7 @@ public class O2 {
 					new GenericInputDialog.IntParser(), 
 					true
 					);
-				String grade = scoreToGradeString(score);
+				char grade = scoreToGradeString(score);
 				System.out.printf("Poengsum: %d, Karakter: %s\n", score, grade);
 			}catch(Exception e) {
 				// skriv ut feilmelding
@@ -78,13 +74,13 @@ public class O2 {
 			scores.clear();
 		}
 	}
-	public static void bruteForceTest() {	
+	static void bruteForceTest() {	
 		String prevGrade = null;
 		java.util.ArrayList<Integer> scores = new java.util.ArrayList<Integer>(); 
 		
 		for(int score = -3; score < 104; score++) {
 			try {
-				String grade = scoreToGradeString(score);
+				String grade = String.valueOf(scoreToGradeString(score));
 				
 				// if new grade encountered, then print all grades that were collected
 				// for previous grade, if any, and set prev grade to new grade

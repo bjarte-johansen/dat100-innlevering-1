@@ -75,7 +75,7 @@ public class O1 {
 	 * - get income before tax as a double and show tax-percentage
 	 * as output 
 	 */
-	public static void run() {
+	static void run() {
 		try {
 			double incomeBeforeTax = GenericInputDialog.read(
 				null, 
