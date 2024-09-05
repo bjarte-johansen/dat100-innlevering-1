@@ -35,11 +35,13 @@ class Dialogs{
 			}
 		}
 	};
-	
+
 	public static class ConfirmationDialog{
+		/*
 		public static boolean show(String message) {
 			return show(null, message);
 		}
+		*/
 		public static boolean show(java.awt.Component parentComponent, String message) {
 			int option = javax.swing.JOptionPane.showConfirmDialog(parentComponent, message);
 			return option == javax.swing.JOptionPane.YES_OPTION;

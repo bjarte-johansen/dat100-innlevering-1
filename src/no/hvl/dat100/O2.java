@@ -37,7 +37,6 @@ public class O2 {
 	 * en gyldig karakter (altså at poengsum er gyldig) 
 	 */
 	static void run(int n, boolean retryIfInvalidGrade) {
-		
 		for(int i=0; i<n; i++) {
 			try {
 				// hent inn poengsum (score) og kalkulert karakter
