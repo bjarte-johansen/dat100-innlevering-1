@@ -48,7 +48,9 @@ public class O2 {
 					new Dialogs.GenericInputDialog.IntParser(), 
 					true
 					);
+				
 				char grade = scoreToGradeString(score);
+				
 				System.out.printf("Poengsum: %d, Karakter: %s\n", score, grade);
 			}catch(Exception e) {
 				// skriv ut feilmelding
