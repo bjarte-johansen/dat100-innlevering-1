@@ -1,40 +1,6 @@
 package no.hvl.dat100;
 
 
-/*
- * this class is allready defined in no.hvl.dat100 package
- * 
-class GenericInputDialog{
-	private interface Parser<T>{ T parse(String input); }
-	public static class ShortParser implements Parser<Short>{ @Override public Short parse(String s) { return Short.parseShort(s); } }
-	public static class ByteParser implements Parser<Byte>{ @Override public Byte parse(String s) { return Byte.parseByte(s); } }
-	public static class IntParser implements Parser<Integer>{ @Override public Integer parse(String s) { return Integer.parseInt(s); } }
-	public static class LongParser implements Parser<Long>{ @Override public Long parse(String s) { return Long.parseLong(s); } }
-	public static class FloatParser implements Parser<Float>{ @Override public Float parse(String s) { return Float.parseFloat(s); } }
-	public static class DoubleParser implements Parser<Double>{ @Override public Double parse(String s) { return Double.parseDouble(s); } }
-	public static class BooleanParser implements Parser<Boolean>{ @Override public Boolean parse(String s) { return Boolean.parseBoolean(s); } }
-	public static class CharParser implements Parser<Character>{ @Override public Character parse(String s) { return s.charAt(0); } }
-	public static class StringParser implements Parser<String>{ @Override public String parse(String s) { return s; } }
-
-	public static <T> T read(Object parentComponent, String message, String title, Parser<T> parser) {
-		return read(parentComponent, message, title, parser, false);
-	}
-	public static <T> T read(Object parentComponent, String message, String title, Parser<T> parser, boolean retry) {
-		try {
-			String s = javax.swing.JOptionPane.showInputDialog((java.awt.Component) parentComponent, message, title, javax.swing.JOptionPane.QUESTION_MESSAGE);
-			return parser.parse(s);
-		}catch(Exception e) {
-			if(retry) {
-				return read(parentComponent, message, title, parser, retry);
-			}else {
-				throw(e);
-			}
-		}
-	}
-};
-*/
-
-
 public class O2 {
 	// validate score
 	static boolean isValidScore(int score) {
@@ -42,11 +8,9 @@ public class O2 {
 	}
 	
 	/*
-	 * map a score to a grade. We could have use a char, but a String
-	 * is chosen in case we want to add + or - or change grade-"enum"
-	 * later on.
-	 * 
-	 * else-statements are redundant since each if-true returns a value
+	 * map a score to a grade. String chosen instead of Char early in case
+	 * task required addition of +/- per grade. It never did but we dont 
+	 * change it as it requires extra testing
 	 */
 	static String scoreToGradeString(int score){
 		if(!isValidScore(score)) {
