@@ -19,6 +19,20 @@ class Dialogs{
 		public static class StringParser implements Parser<String>{ @Override public String parse(String s) { return s; } };
 		public static class BigIntegerParser implements Parser<BigInteger>{ @Override public BigInteger parse(String s) { return new BigInteger(s); } };
 	
+		// new interface for show and parse
+		public static <T> T parse(String stringToParse, Parser<T> parser) {
+			return parser.parse(stringToParse);			
+		}
+		/*
+		public static <T> T parse(String stringToParse, Class<T> parser_class_ref) {
+			T parser = parser_class_ref.getDeclaredConstructor().newInstance();
+			return parser.parse(stringToParse);			
+		}
+		*/		
+		public static String show(java.awt.Component parentComponent, String message, String title) {
+			return javax.swing.JOptionPane.showInputDialog(parentComponent, message, title, javax.swing.JOptionPane.QUESTION_MESSAGE);
+		}			
+		
 		public static <T> T show(java.awt.Component parentComponent, String message, String title, Parser<T> parser) {
 			return show(parentComponent, message, title, parser, false);
 		}
