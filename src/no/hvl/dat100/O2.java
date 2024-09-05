@@ -41,11 +41,11 @@ public class O2 {
 		for(int i=0; i<n; i++) {
 			try {
 				// hent inn poengsum (score) og kalkulert karakter
-				int score = GenericInputDialog.show(
+				int score = Dialogs.GenericInputDialog.show(
 					null, 
 					"Skriv inn poengsum", 
 					"Input",
-					new GenericInputDialog.IntParser(), 
+					new Dialogs.GenericInputDialog.IntParser(), 
 					true
 					);
 				char grade = scoreToGradeString(score);
@@ -103,7 +103,7 @@ public class O2 {
 		run(10, true);
 		
 		// optional test to print scores (0+(n<0)) .. (100+(n>0)) grades 
-		if(javax.swing.JOptionPane.showConfirmDialog(null, "Vil du kjøre tilleggstest?") == javax.swing.JOptionPane.YES_OPTION) {
+		if(Dialogs.ConfirmationDialog.show(null, "Vil du kjøre tilleggstest?")) {
 			bruteForceTest();
 		}
 	}
