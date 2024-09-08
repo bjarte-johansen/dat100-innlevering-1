@@ -8,7 +8,7 @@ public class O2 {
 	
 	// map score to grade 
 	// - throws if input is invalid	
-	static char scoreToGradeString(int score){
+	static char scoreToGrade(int score){
 		if(!isValidScore(score)) {
 			throw new IllegalArgumentException("Poeng må være i [0..100]");
 		}
@@ -49,7 +49,7 @@ public class O2 {
 					true
 					);
 				
-				char grade = scoreToGradeString(score);
+				char grade = scoreToGrade(score);
 				
 				System.out.printf("Poengsum: %d, Karakter: %s\n", score, grade);
 			}catch(Exception e) {
@@ -82,7 +82,7 @@ public class O2 {
 		
 		for(int score = -3; score < 104; score++) {
 			try {
-				String grade = String.valueOf(scoreToGradeString(score));
+				String grade = String.valueOf(scoreToGrade(score));
 				
 				// if new grade encountered, then print all grades that were collected
 				// for previous grade, if any, and set prev grade to new grade

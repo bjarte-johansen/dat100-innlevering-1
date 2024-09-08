@@ -73,7 +73,7 @@ public class O1 {
 	// format norwegian currency
 	static String formatCurrency(double amt) {
 		NumberFormat formatter = NumberFormat.getCurrencyInstance(new Locale("no", "NO"));
-        return formatter.format(amt); 
+		return formatter.format(amt); 
 	}
 	
 	// compute tax percentage
