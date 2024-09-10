@@ -40,7 +40,7 @@ public class O2 {
 	static void run(int n, boolean retryIfInvalidGrade) {
 		for(int i=0; i<n; i++) {
 			try {
-				// hent inn poengsum (score) og kalkulert karakter
+				// hent inn poengsum (score) som int
 				int score = Dialogs.GenericInputDialog.show(
 					null, 
 					"Skriv inn poengsum", 
@@ -49,8 +49,10 @@ public class O2 {
 					true
 					);
 				
+				// kalkuler karakter
 				char grade = scoreToGrade(score);
 				
+				// skriv ut
 				System.out.printf("Poengsum: %d, Karakter: %s\n", score, grade);
 			}catch(Exception e) {
 				// skriv ut feilmelding

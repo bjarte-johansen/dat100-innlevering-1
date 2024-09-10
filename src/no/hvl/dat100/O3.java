@@ -57,11 +57,12 @@ public class O3 {
 				true
 				);
 			
-			BigInteger fact1 = factorial(num);
-			System.out.printf("%d! or factorial(%d) is equal to %s\n", num, num, String.valueOf(fact1));
-			
+		
 			BigInteger fact2 = factorialByIteration(num);					
-			System.out.printf("%d! or factorial(%d) is equal to %s\n", num, num, String.valueOf(fact2));
+			System.out.printf("iteration: %d! or factorial(%d) is equal to %s\n", num, num, String.valueOf(fact2));
+			
+			BigInteger fact1 = factorial(num);
+			System.out.printf("recursion %d! or factorial(%d) is equal to %s\n", num, num, String.valueOf(fact1));			
 			
 			if(!fact1.equals(fact2)) {
 				System.out.println("factorials differ");
