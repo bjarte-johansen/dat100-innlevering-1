@@ -14,8 +14,8 @@ import java.util.Locale;
  * 
  *   Vi godtar altså IKKE å tilpasse algoritmen for å få det som "fremstår" som korrekt 
  *   fasitsvar. Vi kan vite at vår fremgangsmåte er KORREKT ved å tenke slik som dette siden 
- *   vi godtar at skatten som skal betales må være korrekt oppgitt i trinnskat, selv om inntekten
- *   kan ha fått desimalene rundet ned:
+ *   vi godtar at skatten som skal betales må være korrekt oppgitt i trinnskatt, selv om 
+ *   inntektkolonnen har fått rundet desimalene sine vekk
  *   
  *   	i = 1 350 100.00
  *   	g = 1 350 001.00
