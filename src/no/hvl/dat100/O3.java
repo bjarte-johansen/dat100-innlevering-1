@@ -45,8 +45,28 @@ public class O3 {
 		
 		return n.multiply(factorial(n.subtract(BigInteger.ONE)));
 	}
+	
+	public static void whenRecursiveFactorialStackOverflow() 
+	{
+		int i = 1500;
+		try 
+		{
+			for(; i<13900; i++) 
+			{
+				System.out.println("testing " + (i));				
+				BigInteger fact1 = factorial(BigInteger.valueOf(i));
+			}
+		}
+		catch(Exception e) 
+		{
+			System.out.print("stackoverflow when factorial is called with " + i);
+		}
+	}
 
 	public static void main(String[] args) {
+		whenRecursiveFactorialStackOverflow();
+		
+		
 		try {
 			// hent inn heltall og beregn fakultet
 			BigInteger num = Dialogs.GenericInputDialog.show(
@@ -55,8 +75,7 @@ public class O3 {
 				"Input",
 				new Dialogs.GenericInputDialog.BigIntegerParser(), 
 				true
-				);
-			
+				);					
 		
 			BigInteger fact2 = factorialByIteration(num);					
 			System.out.printf("iteration: %d! or factorial(%d) is equal to %s\n", num, num, String.valueOf(fact2));

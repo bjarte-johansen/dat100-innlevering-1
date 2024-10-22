@@ -46,14 +46,14 @@ import java.util.Locale;
  * DETTE ER EN FINURLIG LUREOPPGAVE FRA HVL !!! 
  */
 
-class TaxCalculator{
+class TaxCalculator
+{
 	// not declared as final since they might be updated from a file
 	static double[] STEP_INCOMES = new double[] {0.0, 208051.0, 292851.0, 670001.0, 937901.0, 1350001.0};
 	static double[] STEP_PERCENTAGES = new double[] {0.0, 1.7, 4.0, 13.6, 16.6, 17.6};
 
 	// optional debug flag to enable debug output
 	final static boolean DEBUG = false; 
-	
 	
 	// return false is we are in an invalid state and should not continue
 	// - note that the method does not throw itself
@@ -64,7 +64,7 @@ class TaxCalculator{
 	
 	// compute tax amount for a certain step
 	protected static double computeStepTaxAmount(double income, double stepMinIncome, double stepMaxIncome, double stepTaxPercentage)
-	{		
+	{
 		// compute amount of tax to pay for step
 		double stepTaxAmount = 0.0; 
 		
@@ -81,7 +81,8 @@ class TaxCalculator{
 			// compute tax amount
 			stepTaxAmount = stepIncomeAmount * (stepTaxPercentage / 100.0);
 			
-			if(DEBUG) {
+			if(DEBUG) 
+			{
 				System.out.printf("income range [%.2f .. %.2f) (size: %.2f), income: %.2f\n", stepMinIncome, stepMaxIncome, (stepMaxIncome - stepMinIncome), income);
 				System.out.printf("stepIncome: %.2f, stepTaxPercentage: %.2f, stepTaxAmount: %.2f\n", stepIncomeAmount, stepTaxPercentage, stepTaxAmount);
 				System.out.println();
@@ -97,12 +98,14 @@ class TaxCalculator{
 	static double compute(double income)
 	{		
 		// throw if invalid step data
-		if(!isValidInternalState()) {
+		if(!isValidInternalState()) 
+		{
 			throw new RuntimeException("invalid internal state / internal data");
 		}
 		
 		// throw if invalid income
-		if(income < 0) {
+		if(income < 0) 
+		{
 			throw new IllegalArgumentException("ugyldig inntekt");
 		}
 		
@@ -139,7 +142,9 @@ class TaxCalculator{
  * 
  */
 
-public class O1 {
+
+public class O1 
+{
 	// format norwegian currency to String
 	static String formatCurrency(double amt) {
 		NumberFormat formatter = NumberFormat.getCurrencyInstance(new Locale("no", "NO"));
@@ -176,7 +181,8 @@ public class O1 {
 
 	// invoke tax calculator that shows tax for each income when adjusted
 	// with 0 or 0.99 NOK 
-	public static void runDebuggingAndExplanationWithOutput() {
+	public static void runDebuggingAndExplanationWithOutput() 
+	{
 		/*
 		 * kode for å vise at oppgavetekst må være feil eller at inntekt må justeres opp med noen
 		 * ører for å få korrekt svar, vi har valgt 0.99 øre i tillegg som gir fasitsvar.
@@ -188,15 +194,17 @@ public class O1 {
 		// conclusions, incomes[n] -> taxamount[n] (conclusion = engelsk for "fasit")  
 		double conclusions[] = new double[] {121388.20, 52978.6, 16541.20, 1445.6, 1.7, 0.0}; 
 
-		{
+		{ 
 			/*
 			 * vis hva som skjer hvis en bruker inputs fra trinnskatt.pdf ved å legge til 99 øre
 			 */		
 			System.out.println("Tax from income + 0.99 NOK");
 			int numErrors = 0;		
-			for(int i=0; i<incomes.length; i++) {
+			for(int i=0; i<incomes.length; i++) 
+			{
 				double taxAmount = computeAndPrintTax(incomes[i] + 0.99);
-				if(!areEqual(taxAmount, conclusions[i], 1e-2)) {
+				if(!areEqual(taxAmount, conclusions[i], 1e-2)) 
+				{
 					System.out.printf("Utreknet skatt har feil mot fasit (%.2f vs %.2f)\n", taxAmount, conclusions[i]);
 					numErrors++;
 				}
@@ -211,9 +219,11 @@ public class O1 {
 			 */
 			System.out.println("Tax from income + 0.00 NOK");
 			int numErrors = 0;
-			for(int i=0; i<incomes.length; i++) {
+			for(int i=0; i<incomes.length; i++) 
+			{
 				double taxAmount = computeAndPrintTax(incomes[i] + 0.00);
-				if(!areEqual(taxAmount, conclusions[i], 1e-2)) {
+				if(!areEqual(taxAmount, conclusions[i], 1e-2)) 
+				{
 					System.out.printf("Utreknet skatt har feil mot fasit (%.2f vs %.2f)\n", taxAmount, conclusions[i]);
 					numErrors++;
 				}
@@ -222,8 +232,6 @@ public class O1 {
 			System.out.println();
 		}
 	}
-	
-
 	
 	public static void runAssignment() {
 		Double income = readOptionalDoubleFromInput();
@@ -238,6 +246,8 @@ public class O1 {
 	{
 		runAssignment();
 		System.out.println();
+		
+		computeAndPrintTax(1000000);
 		
 		runDebuggingAndExplanationWithOutput();
 	}
